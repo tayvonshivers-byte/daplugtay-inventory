@@ -35,7 +35,7 @@ export default function Header({
             DaPlugTay
           </h1>
           <p className="hidden text-xs text-zinc-500 sm:block">
-            {itemCount} items · Tap to view · DM to order
+            {itemCount} items · Tap to view · DM @daplugtay
           </p>
         </div>
 
