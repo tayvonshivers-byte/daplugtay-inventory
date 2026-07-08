@@ -86,7 +86,7 @@ function ProductCard({
       <div className="relative aspect-square overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-950 transition-all duration-300 group-hover:border-zinc-600 group-hover:shadow-lg group-hover:shadow-white/5 group-active:scale-[0.98]">
         <img
         decoding="async"
-          src={product.image}
+          src={`/api/image?url=${encodeURIComponent(product.image)}`}
           alt={`${product.brand} item`}
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
