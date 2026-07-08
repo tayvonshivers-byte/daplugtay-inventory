@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { Product } from "@/lib/types";
 
 interface ProductGridProps {
@@ -13,6 +14,8 @@ export default function ProductGrid({
   onProductSelect,
   activeBrand,
 }: ProductGridProps) {
+  const [visibleCount, setVisibleCount] = useState(100);
+const visibleProducts = products.slice(0, visibleCount);
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center px-6 py-24 text-center animate-fade-in">
@@ -41,7 +44,7 @@ export default function ProductGrid({
       </div>
 
       <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-        {products.map((product, index) => (
+        {visibleProducts.map((product, index) => (
           <ProductCard
             key={product.id}
             product={product}
@@ -50,6 +53,16 @@ export default function ProductGrid({
           />
         ))}
       </div>
+      {visibleCount < products.length && (
+  <div className="mt-8 flex justify-center">
+    <button
+      onClick={() => setVisibleCount((count) => count + 100)}
+      className="rounded-full bg-white px-8 py-3 font-bold text-black"
+    >
+      Load More
+    </button>
+  </div>
+)}
     </section>
   );
 }
@@ -72,6 +85,7 @@ function ProductCard({
     >
       <div className="relative aspect-square overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-950 transition-all duration-300 group-hover:border-zinc-600 group-hover:shadow-lg group-hover:shadow-white/5 group-active:scale-[0.98]">
         <img
+        decoding="async"
           src={product.image}
           alt={`${product.brand} item`}
           loading="lazy"
