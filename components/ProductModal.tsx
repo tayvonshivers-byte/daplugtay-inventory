@@ -66,7 +66,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
         <div className="flex flex-1 items-center justify-center overflow-hidden px-4 pb-4 sm:px-8">
           <img
-            src={product.image}
+            src={`/api/image?url=${encodeURIComponent(product.image)}`}
             alt={`${product.brand} item`}
             className="max-h-[calc(100vh-200px)] w-full max-w-2xl animate-scale-in object-contain"
           />
