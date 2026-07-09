@@ -55,13 +55,33 @@ export default function LandingScreen({ onEnter }: LandingScreenProps) {
           Browse. Screenshot. DM to order.
         </p>
 
-        <button
-          type="button"
-          onClick={toggleMusic}
-          className="mt-8 rounded-full border border-zinc-700 px-6 py-3 text-sm font-bold text-white"
-        >
-          {playing ? "Pause Hit Em Up" : "Play Hit Em Up"}
-        </button>
+        <div className="mt-8 text-center">
+  <a
+    href="https://www.instagram.com/hottboii.cri/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block text-lg font-semibold text-white transition hover:text-zinc-300"
+  >
+    ♪ Hit Em Up
+  </a>
+
+  <a
+    href="https://www.instagram.com/hottboii.cri/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-1 block text-sm text-zinc-500 transition hover:text-zinc-300"
+  >
+    by @hottboii.cri
+  </a>
+
+  <button
+    type="button"
+    onClick={toggleMusic}
+    className="mt-5 rounded-full border border-zinc-700 px-6 py-3 text-sm font-bold text-white transition hover:border-white hover:bg-white hover:text-black"
+  >
+    {playing ? "⏸ Pause Music" : "▶ Play Music"}
+  </button>
+</div>
 
         <button
           type="button"
