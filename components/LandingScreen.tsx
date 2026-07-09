@@ -44,7 +44,7 @@ export default function LandingScreen({ onEnter }: LandingScreenProps) {
 
       <div className="relative text-center animate-fade-up">
         <p className="mb-6 text-[10px] font-medium uppercase tracking-[0.5em] text-zinc-500">
-          Premium Inventory
+          Exclusive Inventory
         </p>
 
         <h1 className="text-5xl font-black tracking-tighter sm:text-7xl md:text-8xl">

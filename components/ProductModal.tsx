@@ -3,7 +3,7 @@
 import { useEffect, useCallback } from "react";
 import type { Product } from "@/lib/types";
 import { INSTAGRAM_DM } from "@/lib/constants";
-
+import prices from "@/public/data/prices.json";
 interface ProductModalProps {
   product: Product | null;
   onClose: () => void;
@@ -73,6 +73,14 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
         </div>
 
         <footer className="shrink-0 border-t border-zinc-800/50 bg-black/50 px-4 py-5 backdrop-blur-xl sm:px-6 sm:py-6">
+        <div className="mb-4 text-center">
+  <p className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+    {product.brand}
+  </p>
+  <p className="mt-2 text-2xl font-black text-white">
+    {(prices as Record<string, string>)[product.brand] || "DM for price"}
+  </p>
+</div>
           <a
             href={INSTAGRAM_DM}
             target="_blank"
